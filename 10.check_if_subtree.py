@@ -6,7 +6,6 @@ A subtree of a tree T1 is a tree T2 consisting of a node in T1 and all of its de
 
 https://practice.geeksforgeeks.org/problems/check-if-subtree/1#
 '''
-
 #User function Template for python3
 
 
@@ -23,28 +22,14 @@ class Node:
 # function should print the left view of the binary tree
 # Note: You aren't required to print a new line after every test case
 
-import sys
-sys.setrecursionlimit(10**9)
+
 class Solution:
-    def isequal(self,root1,root2):
-        if(root1==None and root2==None):
-            return True
-        if(root1==None or root2==None):
-            return False
-        
-        return (root1.data==root2.data and self.isequal(root1.left,root2.left) and self.isequal(root1.right,root2.right))
-    
-    def isSubTree(self, T, S):
-        # Code here
-        if(S==None):
-            return True
-        elif(T==None):
-            return False
+    def convert(self,p):
+            return "^" + str(p.data) + "#" + self.convert(p.left) + self.convert(p.right) if p else "$"
             
-        if(self.isequal(T,S)):
-            return True
-        
-        return (self.isSubTree(T.left,S) or self.isSubTree(T.right,S))
+    def isSubTree(self, t, s):
+        # Code here
+        return self.convert(s) in self.convert(t)
 
 #{ 
 #  Driver Code Starts
