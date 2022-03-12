@@ -21,7 +21,7 @@ def reverse(S):
     return res
     #Add code here
 
-#{ 
+#{
 #Driver Code Starts.
 if __name__=='__main__':
     t=int(input())
